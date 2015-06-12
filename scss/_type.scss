@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700|Hind:400,600,700);
+
+%base--type {
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+}
+
+%typeface {
+
+  &__karla {
+    @extend %base--type;
+    // @import url(http://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700|Hind:400,600,700);
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+  }
+  
+
+  &__karla--bold {
+    @extend %base--type;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+  }
+
+  &__mont {
+    @extend %base--type;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+
+  &__mont--bold {
+    @extend %base--type;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  &__hind {
+    @extend %base--type;
+    font-family: 'Hind', sans-serif;
+    font-weight: 400;
+  }
+
+  &__hind--medium {
+    @extend %base--type;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+  }
+
+  &__hind--bold {
+    @extend %base--type;
+    font-family: 'Hind', sans-serif;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,10 @@
+applications:
+- disk_quota: 1024M
+  host: okaymon
+  name: okaymon
+  command: npm start
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 256M
+  buildpack: sdk-for-nodejs

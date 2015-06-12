@@ -1,0 +1,27 @@
+{
+  "name": "okaymon",
+  "version": "0.0.1",
+  "authors": [
+    "Brian Han @thisisbrianhan"
+  ],
+  "description": "A guide to knowing the evolutions of monsters you encounter on your journey to be the very best.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "brian",
+    "han",
+    "okaymon"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "ibm-colors": "~1.4.0"
+  }
+}

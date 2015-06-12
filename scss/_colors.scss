@@ -1,0 +1,44 @@
+@import 'bower_components/ibm-colors/ibm-colors';
+
+$red: color("red", 50);
+$white: color("white");
+$dark-red: color("red", 100);
+
+
+// POKEMON TYPES
+
+$pokemon-types: (
+  normal: #f7f7f7,
+  fighting: #f39c12,
+  flying: lighten(color('blue', 10), 5),
+  poision: color('purple', 40),
+  ground: #9a4c4c,
+  rock: color('warm-gray', 50),
+  bug: color('teal', 30),
+  ghost: #2c3e50,
+  steel: color('cool-gray', 40),
+  fire: color('red', 50),
+  water: #3498db,
+  grass: #27ae60,
+  electric: color('yellow', 20),
+  psychic: color('magenta', 60),
+  ice: lighten(color('blue', 20), 5),
+  dragon: #16a085,
+  dark: color('purple', 70),
+  fairy: color('magenta', 30)    
+);
+
+@each $name, $color in $pokemon-types {
+  .pokemon-type--#{$name} {
+    background-color: $color;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 1em;
+    margin: 1em;
+  }
+}
+
+// .test-div {
+//   background-color: map-get($pokemon-types, fairy);
+// }
