@@ -40,15 +40,22 @@ apiRouter.route('/pokemon')
   //   });
   // })
   .get(function(req, res) {
-    Pokemon.find(function(err, pokemon) {
-      if (req.query.limit >= 0) {
+    // Limit number of pokemon in response.
+    if (req.query.limit >= 0) {
+      Pokemon.find(function(err, pokemon) {
         res.json(pokemon.slice(0, req.query.limit));
-      } else {
-        if (err) res.send(err);
+      });
+    // Return a pokemon by national_id. 
+    } else if (req.query.id >= 0) {
+      Pokemon.find({"national_id": req.query.id}, function(err, pokemon) {
         res.json(pokemon);
-      }
-      
-    });
+      });
+    // Return all pokemon.
+    } else {
+      Pokemon.find(function(err, pokemon) {
+        res.json(pokemon);
+      });
+    }
   });
 
 apiRouter.route('/pokemon/:pokemon_name')
