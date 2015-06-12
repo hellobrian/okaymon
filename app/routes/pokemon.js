@@ -45,13 +45,27 @@ apiRouter.route('/pokemon')
       Pokemon.find(function(err, pokemon) {
         res.json(pokemon.slice(0, req.query.limit));
       });
-    // Return a pokemon by national_id. 
-    } else if (req.query.id >= 0) {
+    } 
+    // Find a pokemon by national_id. 
+    else if (req.query.id >= 0) {
       Pokemon.find({"national_id": req.query.id}, function(err, pokemon) {
         res.json(pokemon);
       });
+    } 
+    // Find a pokemon by type
+    else if (req.query.type) {
+      Pokemon.find({ 
+        "types": {
+          "$elemMatch": {
+            "name": req.query.type
+          }
+        }
+      }, function(err, pokemon) {
+        res.json(pokemon);
+      })
+    } 
     // Return all pokemon.
-    } else {
+    else {
       Pokemon.find(function(err, pokemon) {
         res.json(pokemon);
       });
