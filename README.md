@@ -2,16 +2,18 @@
 
 ## API
 
-- #### GET [/api/pokemon](http://okaymon.mybluemix.net/api/pokemon)
+### GET Requests
+
+- #### [/api/pokemon](http://okaymon.mybluemix.net/api/pokemon)
 Returns an array of all pokemon. There are 718 pokemon in this API. 
 
-- #### GET [/api/pokemon?limit=2](http://okaymon.mybluemix.net/api/pokemon?limit=2)
+- #### [/api/pokemon?limit=2](http://okaymon.mybluemix.net/api/pokemon?limit=2)
 Limits the number of pokemon results to an array length of 2.
 
-- #### GET [/api/pokemon?id=1](http://okaymon.mybluemix.net/api/pokemon?id=1)
+- #### [/api/pokemon?id=1](http://okaymon.mybluemix.net/api/pokemon?id=1)
 Returns a pokemon object with the national_id of 1.
 
-- #### GET [/api/pokemon?type=fire](http://okaymon.mybluemix.net/api/pokemon?type=fire)
+- #### [/api/pokemon?type=fire](http://okaymon.mybluemix.net/api/pokemon?type=fire)
 Returns a pokemon with a type of fire.
 
-- #### GET [/api/pokemon/mewtwo](http://okaymon.mybluemix.net/api/pokemon/mewtwo)
+- #### [/api/pokemon/mewtwo](http://okaymon.mybluemix.net/api/pokemon/mewtwo)
