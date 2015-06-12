@@ -15,4 +15,3 @@ Returns a pokemon object with the national_id of 1.
 Returns a pokemon with a type of fire.
 
 - #### GET [/api/pokemon/mewtwo](http://okaymon.mybluemix.net/api/pokemon/mewtwo)
-Returns a pokemon by name.
