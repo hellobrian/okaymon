@@ -41,8 +41,13 @@ apiRouter.route('/pokemon')
   // })
   .get(function(req, res) {
     Pokemon.find(function(err, pokemon) {
-      if (err) res.send(err);
-      res.json(pokemon);
+      if (req.query.limit >= 0) {
+        res.json(pokemon.slice(0, req.query.limit));
+      } else {
+        if (err) res.send(err);
+        res.json(pokemon);
+      }
+      
     });
   });
 
