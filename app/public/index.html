@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Okaymon">
 <head>
   <meta charset="UTF-8">
   <title>okaymon</title>
@@ -7,7 +7,11 @@
 </head>
 <body>
   <h1>Okaymon</h1>
+  <div class="main-wrapper">
+    <div ng-view></div>
+  </div>
   <script src="angular/angular.min.js"></script>
+  <script src="angular-route/angular-route.min.js"></script>
   <script src="javascript/app.js"></script>
 </body>
 </html>
