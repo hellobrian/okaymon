@@ -5,6 +5,7 @@ var express    = require('express'),
     morgan     = require('morgan'),
     mongoose   = require('mongoose'),
     favicon    = require('express-favicon'),
+    compression = require('compression'),
     request    = require('request');
     
 
@@ -34,6 +35,7 @@ mongoose.connect(
 //   next();
 // });
 
+app.use(compression());
 app.use(favicon(__dirname + '/app/public/images/favicon.ico'));
 app.use(express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/app/public'));
