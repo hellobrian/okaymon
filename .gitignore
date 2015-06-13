@@ -3,3 +3,5 @@ node_modules
 bower_components
 config.json
 pokemon.json
+.DS_Store
+app/.DS_Store

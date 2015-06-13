@@ -23,7 +23,7 @@ var AUTOPREFIXER_BROWSERS = [
 var SOURCE = {
   scss: 'scss/**/*.scss',
   css: 'app/public/css',
-  js: 'app/public/js/*.js'
+  js: 'app/public/javascript/*.js'
 };
 
 // browser-sync task for starting the server.
