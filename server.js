@@ -35,6 +35,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(__dirname + 'bower_components'));
+app.use(express.static(__dirname + './app/public'));
 
 // log all requests to the console
 
