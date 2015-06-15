@@ -36,18 +36,15 @@ mongoose.connect(
 // });
 
 app.use(compression());
-app.use(favicon(__dirname + '/app/public/images/favicon.ico'));
-app.use(express.static(__dirname + '/bower_components'));
-app.use(express.static(__dirname + '/app/public'));
+app.use(favicon('public/images/favicon.ico'));
+app.use(express.static('public'));
 
 // log all requests to the console
 
 app.use(morgan('dev'));
-
 app.use('/api', pokemonApiRouter);
-app.get('*', function(req, res) {
-  res.sendFile('./app/public/index.html');
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
 });
-
 app.listen(port);
 console.log('Magic happens on port ' + port);

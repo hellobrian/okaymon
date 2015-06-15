@@ -1,6 +1,6 @@
-app/public/css
+public/css
+public/libs
 node_modules
-bower_components
 config.json
 pokemon.json
 .DS_Store

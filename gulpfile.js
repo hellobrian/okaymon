@@ -22,9 +22,9 @@ var AUTOPREFIXER_BROWSERS = [
 
 var SOURCE = {
   scss: 'scss/**/*.scss',
-  css: 'app/public/css',
-  html: ['app/public/*.html', 'app/public/templates/pokemon/*.html'],
-  js: ['app/public/javascript/*.js', '*.js']
+  css: 'public/css',
+  html: ['public/*.html', 'public/templates/pokemon/*.html'],
+  js: ['public/javascript/*.js', '*.js']
 };
 
 // browser-sync task for starting the server.
