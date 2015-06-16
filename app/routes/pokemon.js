@@ -10,7 +10,7 @@ apiRouter.route('/pokemon')
   .get(function(req, res) {
     // Limit number of pokemon in response.
     if (req.query.limit >= 0) {
-      Pokemon.find(function(err, pokemon) {
+      Pokemon.find().sort({ "national_id": 1 }).exec(function(err, pokemon) {
         res.json(pokemon.slice(0, req.query.limit));
       });
     } 
