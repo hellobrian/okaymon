@@ -14,7 +14,7 @@
 
   <section class="main-section" ng-controller="mainController as main">
 
-    <div class="pokemon" ng-repeat="p in main.pokemon | orderBy: 'national_id'">
+    <div class="pokemon" ng-repeat="p in main.pokemon">
       <div class="pokemon__image-container">
         <img class="pokemon__image" ng-src="{{ main.getImageUrl(p.national_id) }}" alt="pokemon sprite image" />
       </div>
