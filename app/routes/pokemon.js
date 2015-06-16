@@ -34,7 +34,7 @@ apiRouter.route('/pokemon')
     } 
     // Return all pokemon.
     else {
-      Pokemon.find(function(err, pokemon) {
+      Pokemon.find().sort({ "national_id": 1 }).exec(function(err, pokemon) {
         res.json(pokemon);
       });
     }
