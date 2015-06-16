@@ -12,7 +12,8 @@ var express     = require('express'),
 var Pokemon = require('./app/models/pokemon');
 
 // Routes
-var generationApiRouter = require('./app/routes/generation.js'),
+var typeApiRouter       = require('./app/routes/type.js'),
+    generationApiRouter = require('./app/routes/generation.js'),
     pokemonApiRouter    = require('./app/routes/pokemon.js');
 
 // Config
@@ -48,6 +49,7 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use('/api', pokemonApiRouter);
 app.use('/api', generationApiRouter);
+app.use('/api', typeApiRouter);
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
