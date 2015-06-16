@@ -1,17 +1,15 @@
 var app = angular.module('okaymon', ['ngRoute'])
 
-app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'templates/pokemon-index.html'
-    })
-    ;
-}]);
+// app.config(['$routeProvider', function($routeProvider) {
+//   $routeProvider
+//     .when('/', {
+//       templateUrl: 'templates/pokemon-index.html'
+//     })
+//     ;
+// }]);
 
 app.controller('mainController', function($http, Pokemon) {
-  var _this = this;
-  _this.message = 'ima main controller';
-  
+  var _this = this;  
   Pokemon.all()
   .success(function(data) {
     _this.pokemon = data;

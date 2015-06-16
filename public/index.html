@@ -8,9 +8,15 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <h1>Okaymon</h1>
-  <div class="main-wrapper">
-    <div ng-view></div>
+  <header>
+    <h1>Okaymon</h1>  
+  </header>
+  <div class="pokemon__container" ng-controller="mainController as main">
+    <div class="pokemon__card" ng-repeat="p in main.pokemon | orderBy: 'national_id'">
+      <p class="pokemon__name">{{p.name}}</p>
+      <p class="pokemon__type" ng-repeat="type in p.types">{{type.name}}</p>
+      <p class="pokemon__evolutions" ng-repeat="ev in p.evolutions">{{ev.method}}: {{ev.level}} {{ev.to}}</p>
+    </div>
   </div>
   <script src="libs/angular/angular.min.js"></script>
   <script src="libs/angular-route/angular-route.min.js"></script>
