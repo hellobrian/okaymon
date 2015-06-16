@@ -28,17 +28,12 @@ $pokemon-types: (
   fairy: color('magenta', 30)    
 );
 
-@each $name, $color in $pokemon-types {
-  .pokemon-type--#{$name} {
-    background-color: $color;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    padding: 1em;
-    margin: 1em;
+@function pokemon($type) {
+  @if map-has-key($pokemon-types, $type) {
+    @return map-get($pokemon-types, $type);  
+  }
+
+  @else {
+    @warn "So sorry! Couldn't find that color";
   }
 }
-
-// .test-div {
-//   background-color: map-get($pokemon-types, fairy);
-// }

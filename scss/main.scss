@@ -8,6 +8,10 @@
   margin: 0;
 }
 
+.pokemon__container {
+  background-color: pokemon('ice');
+}
+
 ul {
   list-style-type: none;
 }
