@@ -8,12 +8,16 @@ var express     = require('express'),
     compression = require('compression'),
     request     = require('request');
     
+// Models
+var Pokemon = require('./app/models/pokemon');
 
-var Pokemon          = require('./app/models/pokemon'), 
-    pokemonApiRouter = require('./app/routes/pokemon.js');
-    config           = require('./config.json');
+// Routes
+var generationApiRouter = require('./app/routes/generation.js'),
+    pokemonApiRouter    = require('./app/routes/pokemon.js');
 
-var port = process.env.PORT || 8080;
+// Config
+var config = require('./config.json'),
+    port   = process.env.PORT || 8080;
 
 mongoose.connect(
   'mongodb://brianhan:' + config.sprites_db_pw + '@ds043942.mongolab.com:43942/sprites')
@@ -43,6 +47,7 @@ app.use(express.static('public'));
 
 app.use(morgan('dev'));
 app.use('/api', pokemonApiRouter);
+app.use('/api', generationApiRouter);
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

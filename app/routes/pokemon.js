@@ -56,6 +56,16 @@ apiRouter.route('/pokemon/:pokemon_name')
     })
   });
 
+// apiRouter.route('/generation/:generation')
+//   .get(function(req, res) {
+//       if (req.params.generation === "1") {
+//         Pokemon.find().sort({ "national_id": 1 }).limit(151).exec(function(err, pokemon) {
+//           if (err) res.send(err);
+//           res.json(pokemon);
+//         });
+//       }
+//   })
+
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 }
