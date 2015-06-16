@@ -1,12 +1,12 @@
-var express    = require('express'),
-    path       = require('path'),
-    app        = express(),
-    bodyParser = require('body-parser'),
-    morgan     = require('morgan'),
-    mongoose   = require('mongoose'),
-    favicon    = require('express-favicon'),
+var express     = require('express'),
+    path        = require('path'),
+    app         = express(),
+    bodyParser  = require('body-parser'),
+    morgan      = require('morgan'),
+    mongoose    = require('mongoose'),
+    favicon     = require('express-favicon'),
     compression = require('compression'),
-    request    = require('request');
+    request     = require('request');
     
 
 var Pokemon          = require('./app/models/pokemon'), 
@@ -47,4 +47,4 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('http://localhost:' + port);
