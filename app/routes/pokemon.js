@@ -8,7 +8,7 @@ apiRouter.get('/', function(req, res) {
 
 apiRouter.route('/pokemon')
   .get(function(req, res) {
-    // Limit number of pokemon in response.
+    // Limit number of pokemon in response by national_id (1 to n).
     if (req.query.limit >= 0) {
       Pokemon
         .find()
@@ -38,8 +38,11 @@ apiRouter.route('/pokemon')
     } 
     // Return all pokemon.
     else {
-      Pokemon.find().sort({ "national_id": 1 }).exec(function(err, pokemon) {
-        res.json(pokemon);
+      Pokemon
+        .find()
+        .sort({ "national_id": 1 })
+        .exec(function(err, pokemon) {
+          res.json(pokemon);
       });
     }
   });
