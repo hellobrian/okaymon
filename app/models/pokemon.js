@@ -17,7 +17,7 @@ var PokemonSchema = new Schema({
       to: String
     }
   ], 
-  types: [{ name: String }],
+  types: [String],
   sprites: [
     {
       name: String,
