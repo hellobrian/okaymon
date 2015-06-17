@@ -52,8 +52,8 @@ apiRouter.route('/pokemon/:pokemon_name')
     var pokemonName = req.params.pokemon_name;
     Pokemon.find({"name": pokemonName.capitalize()}, function(err, pokemon) {
       if (err) res.send(err);
-      if (req.body.name) pokemon[0].name = req.body.name;
       if (req.body.types) pokemon[0].types = req.body.types;
+      if (req.body.image_url) pokemon[0].image_url = req.body.image_url;
       pokemon[0].save(function(err) {
         if (err) res.send(err);
         res.json(pokemon);

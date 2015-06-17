@@ -18,13 +18,7 @@ var PokemonSchema = new Schema({
     }
   ], 
   types: [String],
-  sprites: [
-    {
-      name: String,
-      resource_uri: String 
-    }
-  ], 
-  resource_uri: String
+  image_url: String
 });
 
 // return the model
