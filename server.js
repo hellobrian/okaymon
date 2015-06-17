@@ -26,19 +26,19 @@ mongoose.connect(
 // // APP CONFIG --------------------------------------------
 // // use body parser so we can grab info from POST requests
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// // configure our app to handle CORS requests
-// // this allows requests from other domains to prevent CORS errors.
-// // Any domain has access to our API
+// configure our app to handle CORS requests
+// this allows requests from other domains to prevent CORS errors.
+// Any domain has access to our API
 
-// app.use(function(req, res, next) {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET');
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET', 'PUT', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+  next();
+});
 
 app.use(compression());
 app.use(favicon('public/images/favicon.ico'));
