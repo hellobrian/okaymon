@@ -48,6 +48,18 @@ apiRouter.route('/pokemon')
   });
 
 apiRouter.route('/pokemon/:pokemon_name')
+  .put(function(req, res) {
+    var pokemonName = req.params.pokemon_name;
+    Pokemon.find({"name": pokemonName.capitalize()}, function(err, pokemon) {
+      if (err) res.send(err);
+      if (req.body.name) pokemon[0].name = req.body.name;
+      if (req.body.types) pokemon[0].types = req.body.types;
+      pokemon[0].save(function(err) {
+        if (err) res.send(err);
+        res.json(pokemon);
+      })
+    })
+  })
   .get(function(req, res) {
     var pokemonName = req.params.pokemon_name;
     Pokemon.find({"name": pokemonName.toLowerCase().capitalize()}, function(err, pokemon) {
@@ -55,16 +67,6 @@ apiRouter.route('/pokemon/:pokemon_name')
       res.json(pokemon);
     })
   });
-
-// apiRouter.route('/generation/:generation')
-//   .get(function(req, res) {
-//       if (req.params.generation === "1") {
-//         Pokemon.find().sort({ "national_id": 1 }).limit(151).exec(function(err, pokemon) {
-//           if (err) res.send(err);
-//           res.json(pokemon);
-//         });
-//       }
-//   })
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
