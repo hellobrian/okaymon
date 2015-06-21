@@ -8,10 +8,14 @@ apiRouter.get('/', function(req, res) {
 
 apiRouter.route('/pokemon')
   .get(function(req, res) {
-    // Limit number of pokemon in response.
+    // Limit number of pokemon in response by national_id (1 to n).
     if (req.query.limit >= 0) {
-      Pokemon.find(function(err, pokemon) {
-        res.json(pokemon.slice(0, req.query.limit));
+      Pokemon
+        .find()
+        .sort({ "national_id": 1 })
+        .limit(req.query.limit)
+        .exec(function(err, pokemon) {
+          res.json(pokemon);
       });
     } 
     // Find a pokemon by national_id. 
@@ -34,13 +38,28 @@ apiRouter.route('/pokemon')
     } 
     // Return all pokemon.
     else {
-      Pokemon.find(function(err, pokemon) {
-        res.json(pokemon);
+      Pokemon
+        .find()
+        .sort({ "national_id": 1 })
+        .exec(function(err, pokemon) {
+          res.json(pokemon);
       });
     }
   });
 
 apiRouter.route('/pokemon/:pokemon_name')
+  .put(function(req, res) {
+    var pokemonName = req.params.pokemon_name;
+    Pokemon.find({"name": pokemonName.capitalize()}, function(err, pokemon) {
+      if (err) res.send(err);
+      if (req.body.types) pokemon[0].types = req.body.types;
+      if (req.body.image_url) pokemon[0].image_url = req.body.image_url;
+      pokemon[0].save(function(err) {
+        if (err) res.send(err);
+        res.json(pokemon);
+      })
+    })
+  })
   .get(function(req, res) {
     var pokemonName = req.params.pokemon_name;
     Pokemon.find({"name": pokemonName.toLowerCase().capitalize()}, function(err, pokemon) {

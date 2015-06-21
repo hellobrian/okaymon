@@ -1,24 +1,30 @@
-var express    = require('express'),
-    app        = express(),
-    bodyParser = require('body-parser'),
-    morgan     = require('morgan'),
-    mongoose   = require('mongoose'),
-    request    = require('request');
+var express     = require('express'),
+    path        = require('path'),
+    app         = express(),
+    bodyParser  = require('body-parser'),
+    morgan      = require('morgan'),
+    mongoose    = require('mongoose'),
+    favicon     = require('express-favicon'),
+    compression = require('compression'),
+    request     = require('request');
     
+// Models
+var Pokemon = require('./app/models/pokemon');
 
-var Pokemon          = require('./app/models/pokemon'), 
-    pokemonApiRouter = require('./app/routes/pokemon.js');
-    config           = require('./config.json');
+// Routes
+var typeApiRouter       = require('./app/routes/type.js'),
+    generationApiRouter = require('./app/routes/generation.js'),
+    pokemonApiRouter    = require('./app/routes/pokemon.js');
 
-var port = process.env.PORT || 8080;
-
-// connect to database (hosted on mongolab)
+// Config
+var config = require('./config.json'),
+    port   = process.env.PORT || 8080;
 
 mongoose.connect(
   'mongodb://brianhan:' + config.sprites_db_pw + '@ds043942.mongolab.com:43942/sprites')
 
-// APP CONFIG --------------------------------------------
-// use body parser so we can grab info from POST requests
+// // APP CONFIG --------------------------------------------
+// // use body parser so we can grab info from POST requests
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -29,30 +35,23 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Methods', 'GET', 'PUT', 'POST');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
   next();
 });
 
-app.use(express.static(__dirname + 'bower_components'));
-app.use(express.static(__dirname + './app/public'));
+app.use(compression());
+app.use(favicon('public/images/favicon.ico'));
+app.use(express.static('public'));
 
 // log all requests to the console
 
 app.use(morgan('dev'));
-
-// ROUTES FOR OUR API
-// ========================================================
-
-// basic route for home page
-
-app.get('/', function(req, res) {
-  res.send('Welcome to the home page!');
-});
-
-// get an instance of the express Router
-
 app.use('/api', pokemonApiRouter);
-
+app.use('/api', generationApiRouter);
+app.use('/api', typeApiRouter);
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('http://localhost:' + port);

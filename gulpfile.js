@@ -22,8 +22,9 @@ var AUTOPREFIXER_BROWSERS = [
 
 var SOURCE = {
   scss: 'scss/**/*.scss',
-  css: 'app/public/css',
-  js: 'app/public/js/*.js'
+  css: 'public/css',
+  html: ['public/*.html', 'public/templates/pokemon/*.html'],
+  js: ['public/javascript/*.js', '*.js']
 };
 
 // browser-sync task for starting the server.
@@ -57,7 +58,7 @@ gulp.task('bs-reload', function () {
 // Default task to be run with `gulp`
 gulp.task('default', ['sass', 'browser-sync'], function () {
   gulp.watch(SOURCE.scss, ['sass']);
-  gulp.watch([SOURCE.js, SOURCE.dust], ['bs-reload'])
+  gulp.watch([SOURCE.js, SOURCE.html], ['bs-reload'])
 });
 
 module.exports = gulp;
