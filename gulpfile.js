@@ -6,6 +6,9 @@ var gulp         = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync  = require('browser-sync'),
     plumber      = require('gulp-plumber'),
+    sprity       = require('sprity'),
+    gulpif       = require('gulp-if'),
+    imageop      = require('gulp-image-optimization'),
     reload       = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
@@ -26,6 +29,16 @@ var SOURCE = {
   html: ['public/*.html', 'public/templates/pokemon/*.html'],
   js: ['public/javascript/*.js', '*.js']
 };
+
+gulp.task('images', function() {
+  gulp.src('public/images/pokemon/**/*.png')
+    .pipe(imageop({
+      optimizationLevel: 5,
+      progressive: true, 
+      interlaced: true
+    }))
+    .pipe(gulp.dest('public/images/optimized'));
+})
 
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
