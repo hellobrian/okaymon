@@ -19,12 +19,6 @@ apiRouter.route('/pokemon')
           res.json(pokemon);
       });
     } 
-    // Find a pokemon by national_id. 
-    else if (req.query.id >= 0) {
-      Pokemon.find({"national_id": req.query.id}, function(err, pokemon) {
-        res.json(pokemon);
-      });
-    } 
     // Find a pokemon by type
     else if (req.query.type) {
       Pokemon.find({ 
@@ -46,13 +40,29 @@ apiRouter.route('/pokemon')
     }
   });
 
-apiRouter.route('/pokemon/:pokemon_name')
+apiRouter.route('/pokemon/:name_or_id')
   .get(function(req, res) {
-    var pokemonName = req.params.pokemon_name;
-    Pokemon.find({"name": pokemonName.toLowerCase().capitalize()}, function(err, pokemon) {
-      if (err) res.send(err);
-      res.json(pokemon);
-    })
+
+    var isNumber = isNumeric(req.params.name_or_id);
+    var param = req.params.name_or_id;
+
+    switch(isNumber) {
+      case true:
+      // FIND A POKEMON by NATIONAL_ID
+        Pokemon.find({ "national_id": param }, function(err, pokemon) {
+          if (err) res.send(err);
+          res.json(pokemon);
+        });
+        break;
+
+      case false: 
+      // FIND A POKEMON by NAME
+        Pokemon.find({ "name": param.toLowerCase().capitalize() }, function(err, pokemon) {
+          if (err) res.send(err);
+          res.json(pokemon);
+        });
+        break;
+    }
   })
   .put(function(req, res) {
     var pokemonName = req.params.pokemon_name;
@@ -66,6 +76,11 @@ apiRouter.route('/pokemon/:pokemon_name')
       })
     })
   });
+
+function isNumeric(input) {
+  // source: http://stackoverflow.com/a/174921
+  return (input - 0) == input && ('' + input).trim().length > 0;
+}
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
