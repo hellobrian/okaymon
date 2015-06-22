@@ -11,7 +11,6 @@ apiRouter.route('/pokemon')
 
     var sortedPokemon = Pokemon.find().sort({ "national_id": 1 });
 
-
     // Limit number of pokemon in response by national_id (1 to n).
     if (req.query.limit >= 0) {
       sortedPokemon
@@ -48,6 +47,13 @@ apiRouter.route('/pokemon')
   });
 
 apiRouter.route('/pokemon/:pokemon_name')
+  .get(function(req, res) {
+    var pokemonName = req.params.pokemon_name;
+    Pokemon.find({"name": pokemonName.toLowerCase().capitalize()}, function(err, pokemon) {
+      if (err) res.send(err);
+      res.json(pokemon);
+    })
+  })
   .put(function(req, res) {
     var pokemonName = req.params.pokemon_name;
     Pokemon.find({"name": pokemonName.capitalize()}, function(err, pokemon) {
@@ -58,13 +64,6 @@ apiRouter.route('/pokemon/:pokemon_name')
         if (err) res.send(err);
         res.json(pokemon);
       })
-    })
-  })
-  .get(function(req, res) {
-    var pokemonName = req.params.pokemon_name;
-    Pokemon.find({"name": pokemonName.toLowerCase().capitalize()}, function(err, pokemon) {
-      if (err) res.send(err);
-      res.json(pokemon);
     })
   });
 
