@@ -19,18 +19,7 @@ apiRouter.route('/pokemon')
           res.json(pokemon);
       });
     } 
-    // Find a pokemon by type
-    else if (req.query.type) {
-      Pokemon.find({ 
-        "types": {
-          "$elemMatch": {
-            "name": req.query.type
-          }
-        }
-      }, function(err, pokemon) {
-        res.json(pokemon);
-      })
-    } 
+
     // Return all pokemon.
     else {
       sortedPokemon
