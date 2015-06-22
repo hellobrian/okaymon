@@ -1,0 +1,8 @@
+{> main-template /}
+{<bodyContent}
+  <h1>OKAYMON DUST</h1>
+  {#pokemon} 
+    {name}
+    <img src="{image_url}" alt="{pokemon.name}">
+  {/pokemon}
+{/bodyContent}

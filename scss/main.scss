@@ -2,6 +2,10 @@
 @import 'layout';
 @import 'type';
 
+body {
+  @extend %typeface__vagrund;
+}
+
 *, *:after, *:before {
   box-sizing: border-box;
   padding: 0;
