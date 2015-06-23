@@ -6,6 +6,9 @@ var express     = require('express'),
     mongoose    = require('mongoose'),
     favicon     = require('express-favicon'),
     compression = require('compression'),
+    dustjs      = require('dustjs-linkedin'),
+    cons        = require('consolidate'),
+    path        = require('path'),
     request     = require('request');
     
 // Models
@@ -43,15 +46,28 @@ app.use(function(req, res, next) {
 app.use(compression());
 app.use(favicon('public/images/favicon.ico'));
 app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
+app.engine('dust', cons.dust);
+app.set('view engine', 'dust');
 
 // log all requests to the console
-
-app.use(morgan('dev'));
+if (app.get('env') === 'development') {
+  app.use(morgan('dev')); 
+};
+  
 app.use('/api', pokemonApiRouter);
 app.use('/api', generationApiRouter);
-app.use('/api', typeApiRouter);
+// app.use('/api', typeApiRouter);
+
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
+  var apiUrl = 'http://okaymon.mybluemix.net/api/'
+  var generation1 = apiUrl + 'generation/1';
+  request(generation1, function(request, response, body) {
+    var pokemon = JSON.parse(body);
+    res.render('index', {layout: 'main-template', pokemon: pokemon });    
+  })
+  
+})
+
 app.listen(port);
 console.log('http://localhost:' + port);

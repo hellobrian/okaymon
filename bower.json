@@ -24,8 +24,5 @@
   "devDependencies": {
     "ibm-colors": "~1.4.0"
   },
-  "dependencies": {
-    "angular": "~1.4.0",
-    "angular-route": "~1.4.0"
-  }
+  "dependencies": {}
 }

@@ -2,10 +2,14 @@ var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     scsslint     = require('gulp-scss-lint'),
     size         = require('gulp-size'),
-    csso         = require('gulp-csso'),
+    // csso         = require('gulp-csso'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync  = require('browser-sync'),
     plumber      = require('gulp-plumber'),
+    sprity       = require('sprity'),
+    spritySass   = require('sprity-sass'), 
+    gulpif       = require('gulp-if'),
+    imageop      = require('gulp-image-optimization'),
     reload       = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
@@ -27,6 +31,27 @@ var SOURCE = {
   js: ['public/javascript/*.js', '*.js']
 };
 
+gulp.task('images', function() {
+  gulp.src('public/images/pokemon-original/*.png')
+    .pipe(imageop({
+      optimizationLevel: 3,
+      progressive: true, 
+      interlaced: true
+    }))
+    .pipe(gulp.dest('public/images/pokemon'));
+});
+
+gulp.task('sprites', function() {
+  return sprity.src({
+    src: './public/images/pokemon/**/*.png',
+    style: './scss/sprite.scss',
+    processor: 'sass'
+  })
+  .pipe(
+    gulpif('*.png', gulp.dest('./public/images'), 
+      gulp.dest('./scss')));
+});
+
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
   browserSync({
@@ -45,7 +70,7 @@ gulp.task('sass', ['scss-lint'], function () {
   .pipe(plumber())
   .pipe(sass())
   .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-  .pipe(csso(SOURCE.css))
+  // .pipe(csso(SOURCE.css))
   .pipe(gulp.dest(SOURCE.css))
   .pipe(size({title: 'CSS: '}))
   .pipe(reload({stream:true}));

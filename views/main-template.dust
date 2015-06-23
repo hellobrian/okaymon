@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Okaymon</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  {+bodyContent}
+    Content should go here.
+  {/bodyContent}
+</body>
+</html>

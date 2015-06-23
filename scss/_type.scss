@@ -1,4 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700|Hind:400,600,700);
+@font-face {
+  font-family: "vagrund";
+  src: url("../fonts/VAG-Rundschrift-D-OT_47300.ttf");
+}
 
 %base--type {
   font-smoothing: antialiased;
@@ -8,6 +12,11 @@
 }
 
 %typeface {
+
+  &__vagrund {
+    @extend %base--type;
+    font-family: "vagrund", sans-serif;
+  }
 
   &__karla {
     @extend %base--type;
