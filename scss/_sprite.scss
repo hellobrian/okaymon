@@ -734,6 +734,7 @@ $zygarde: -0px -88876px 136px 148px;
   background-position: $sprite-offset-x $sprite-offset-y;
 }
 @mixin sprite($sprite, $display: block) {
+  @extend %icon;
   @include sprite-position($sprite);
   background-repeat: no-repeat;
   overflow: hidden;
@@ -741,6 +742,6 @@ $zygarde: -0px -88876px 136px 148px;
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
-.icon {
+%icon {
   background-image: url("../images/sprite.png");
 }

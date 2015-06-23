@@ -1,3 +1,4 @@
+@import 'sprite';
 @import 'colors';
 @import 'layout';
 @import 'type';
@@ -21,31 +22,6 @@ $base-font-size: 16px;
   @return ($px / $base) * 1em;
 }
 
-.main-section {
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.pokemon {
-  & {
-    display: inline-block;
-    z-index: 0;
-    margin: 0;
-  }
-
-  &__image-container {
-    padding: 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: em(100px);
-    height: em(100px);
-  }
-
-  &__image {
-    width: 100%;
-  }
+.charmander {
+  @include sprite($charmander);
 }

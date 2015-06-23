@@ -2,7 +2,7 @@ var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     scsslint     = require('gulp-scss-lint'),
     size         = require('gulp-size'),
-    csso         = require('gulp-csso'),
+    // csso         = require('gulp-csso'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync  = require('browser-sync'),
     plumber      = require('gulp-plumber'),
@@ -70,7 +70,7 @@ gulp.task('sass', ['scss-lint'], function () {
   .pipe(plumber())
   .pipe(sass())
   .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-  .pipe(csso(SOURCE.css))
+  // .pipe(csso(SOURCE.css))
   .pipe(gulp.dest(SOURCE.css))
   .pipe(size({title: 'CSS: '}))
   .pipe(reload({stream:true}));
