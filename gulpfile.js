@@ -28,7 +28,8 @@ var SOURCE = {
   scss: 'scss/**/*.scss',
   css: 'public/css',
   html: ['public/*.html', 'public/templates/pokemon/*.html'],
-  js: ['public/javascript/*.js', '*.js']
+  js: ['public/javascript/*.js', '*.js'], 
+  dust: 'views/**/*.dust'
 };
 
 gulp.task('images', function() {
@@ -83,7 +84,7 @@ gulp.task('bs-reload', function () {
 // Default task to be run with `gulp`
 gulp.task('default', ['sass', 'browser-sync'], function () {
   gulp.watch(SOURCE.scss, ['sass']);
-  gulp.watch([SOURCE.js, SOURCE.html], ['bs-reload'])
+  gulp.watch([SOURCE.js, SOURCE.html, SOURCE.dust], ['bs-reload'])
 });
 
 module.exports = gulp;

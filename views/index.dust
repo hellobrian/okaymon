@@ -1,10 +1,6 @@
 {> main-template /}
 {<bodyContent}
-  <h1>OKAYMON DUST</h1>
-  <div class="charmander"></div>
-  <div class="icon"></div>
-  {! {#pokemon} 
-    {name}
-    <img src="{image_url}" alt="{pokemon.name}">
-  {/pokemon} !}
+<section>
+  <h1>Okaymon</h1>
+</section>
 {/bodyContent}
