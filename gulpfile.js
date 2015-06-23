@@ -7,6 +7,7 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync'),
     plumber      = require('gulp-plumber'),
     sprity       = require('sprity'),
+    spritySass   = require('sprity-sass'), 
     gulpif       = require('gulp-if'),
     imageop      = require('gulp-image-optimization'),
     reload       = browserSync.reload;
@@ -38,7 +39,18 @@ gulp.task('images', function() {
       interlaced: true
     }))
     .pipe(gulp.dest('public/images/optimized'));
-})
+});
+
+gulp.task('sprites', function() {
+  return sprity.src({
+    src: './public/images/pokemon/**/*.png',
+    style: './scss/sprite.scss',
+    processor: 'sass'
+  })
+  .pipe(
+    gulpif('*.png', gulp.dest('./public/images'), 
+      gulp.dest('./scss')));
+});
 
 // browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
