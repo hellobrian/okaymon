@@ -35,6 +35,12 @@ Returns a pokemon by name.
 Returns the first 151 pokemon according to national_id.
 There are 6 generations of pokemon. 
 
+- [/api/generation/1?type=fire](http://okaymon.mybluemix.net/api/generation/1?type=fire)
+Returns an array of fire type pokemon from Generation 1.
+
+- [/api/generation/1?type=fire&type2=flying](http://okaymon.mybluemix.net/api/generation/1?type=fire&type2=flying)
+Returns an array of pokemon from Generation 1 that are both fire and flying type.
+
 ### GET /type
 
 - [/api/type/fire](http://okaymon.mybluemix.net/api/type/fire)
