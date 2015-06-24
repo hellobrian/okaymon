@@ -5,30 +5,46 @@ var express   = require('express'),
 apiRouter.route('/generation/:gen_number')
   .get(function(req, res) {
 
-    var queryType = req.query.type;
-    var sortedPokemon = function() {
-      return Pokemon.find().sort({ "national_id": 1 })
+    var typeOne = req.query.type1 || req.query.type;
+    var typeTwo = req.query.type2;
+
+    var queryTwoTypes = function(query1, query2, id) {
+      return Pokemon.find({ "$and": 
+        [
+          { "types": {"$all": [ query1, query2 ]}},
+          { "national_id": {"$lte": id }}
+        ]
+      }).sort({"national_id": 1})
     };
 
-    var sortedGenerationAndType = function(query, national_id) {
+    var queryType = function(query, id) {
       return Pokemon.find({ "$and": 
         [
           { "types": {"$in": [ query ]}}, 
-          { "national_id": { "$lte": national_id }}
+          { "national_id": { "$lte": id }}
         ]
         }).sort({ "national_id": 1 });
     }
 
+    var query = function() {
+      return Pokemon.find().sort({ "national_id": 1 })
+    };
+
     switch(req.params.gen_number) {
 
       case "1": 
-        if (queryType) {
-          sortedGenerationAndType( queryType, 151).exec(function(err, pokemon) {
+        if (typeOne && typeTwo) {
+          queryTwoTypes( typeOne, typeTwo, 151).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else if (typeOne) {
+          queryType( typeOne, 151).exec(function(err, pokemon) {
             if (err) res.send(err);
             res.json(pokemon);
           })
         } else {
-          sortedPokemon().limit(151).exec(function(err, pokemon) {
+          query().limit(151).exec(function(err, pokemon) {
             if (err) res.send(err);
             res.json(pokemon);
           });
@@ -36,35 +52,35 @@ apiRouter.route('/generation/:gen_number')
         break;
 
       case "2": 
-        sortedPokemon().skip(151).limit(100).exec(function(err, pokemon) {
+        query().skip(151).limit(100).exec(function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
         break;
 
       case "3":
-        sortedPokemon().skip(251).limit(135).exec(function(err, pokemon) {
+        query().skip(251).limit(135).exec(function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
         break;
 
       case "4":
-        sortedPokemon().skip(386).limit(107).exec(function(err, pokemon) {
+        query().skip(386).limit(107).exec(function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
         break;
 
       case "5":
-        sortedPokemon().skip(493).limit(156).exec(function(err, pokemon) {
+        query().skip(493).limit(156).exec(function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
         break;
 
       case "6":
-        sortedPokemon().skip(659).limit(69).exec(function(err, pokemon) {
+        query().skip(659).limit(69).exec(function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
