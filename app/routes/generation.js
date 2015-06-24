@@ -77,36 +77,85 @@ apiRouter.route('/generation/:gen_number')
         break;
 
       case "3":
-        query().skip(251).limit(135).exec(function(err, pokemon) {
-          if (err) res.send(err);
-          res.json(pokemon);
-        });
+        if (typeOne && typeTwo) {
+          queryTwoTypes( typeOne, typeTwo, 251, 386).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        } else if (typeOne) {
+          queryType( typeOne, 251, 386).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else {
+          query().skip(251).limit(135).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        }
         break;
 
       case "4":
-        query().skip(386).limit(107).exec(function(err, pokemon) {
-          if (err) res.send(err);
-          res.json(pokemon);
-        });
+        if (typeOne && typeTwo) {
+          queryTwoTypes( typeOne, typeTwo, 386, 493).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        } else if (typeOne) {
+          queryType( typeOne, 386, 493).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else {
+          query().skip(386).limit(107).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        }
         break;
 
       case "5":
-        query().skip(493).limit(156).exec(function(err, pokemon) {
-          if (err) res.send(err);
-          res.json(pokemon);
-        });
+        if (typeOne && typeTwo) {
+          queryTwoTypes( typeOne, typeTwo, 493, 649).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        } else if (typeOne) {
+          queryType( typeOne, 493, 649).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else {
+          query().skip(493).limit(156).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        }
         break;
 
       case "6":
-        query().skip(659).limit(69).exec(function(err, pokemon) {
-          if (err) res.send(err);
-          res.json(pokemon);
-        });
+        if (typeTwo && typeOne) {
+          queryTwoTypes( typeOne, typeTwo, 649, 718).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        } else if (typeOne) {
+          queryType( typeOne, 649, 718).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else {
+          query().skip(659).limit(69).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        }
         break;
 
       default: 
         res.json({
-          "message": req.params.gen_number + " is not a generation of pokemon."
+          "params_error": req.params.gen_number + " is not a generation of pokemon.",
+          "query_strings": req.query
         });
     }
   });
