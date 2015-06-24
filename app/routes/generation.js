@@ -5,7 +5,7 @@ var express   = require('express'),
 apiRouter.route('/generation/:gen_number')
   .get(function(req, res) {
 
-    var typeOne = req.query.type1 || req.query.type;
+    var typeOne = req.query.type;
     var typeTwo = req.query.type2;
 
     var queryTwoTypes = function(query1, query2, gt_id, lte_id) {
