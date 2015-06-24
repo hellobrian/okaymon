@@ -8,20 +8,26 @@ apiRouter.route('/generation/:gen_number')
     var typeOne = req.query.type1 || req.query.type;
     var typeTwo = req.query.type2;
 
-    var queryTwoTypes = function(query1, query2, id) {
-      return Pokemon.find({ "$and": 
-        [
+    var queryTwoTypes = function(query1, query2, gt_id, lte_id) {
+      return Pokemon.find({ 
+        "$and": [
           { "types": {"$all": [ query1, query2 ]}},
-          { "national_id": {"$lte": id }}
+          { "$and": [
+            {"national_id": {"$gt": gt_id}},
+            {"national_id": {"$lte": lte_id}}
+          ]}
         ]
       }).sort({"national_id": 1})
     };
 
-    var queryType = function(query, id) {
-      return Pokemon.find({ "$and": 
-        [
+    var queryType = function(query, gt_id, lte_id) {
+      return Pokemon.find({ 
+        "$and": [
           { "types": {"$in": [ query ]}}, 
-          { "national_id": { "$lte": id }}
+          { "$and": [
+            {"national_id": {"$gt": gt_id}},
+            {"national_id": {"$lte": lte_id}}
+          ]}
         ]
         }).sort({ "national_id": 1 });
     }
@@ -34,12 +40,12 @@ apiRouter.route('/generation/:gen_number')
 
       case "1": 
         if (typeOne && typeTwo) {
-          queryTwoTypes( typeOne, typeTwo, 151).exec(function(err, pokemon) {
+          queryTwoTypes(typeOne, typeTwo, 0, 151).exec(function(err, pokemon) {
             if (err) res.send(err);
             res.json(pokemon);
           })
         } else if (typeOne) {
-          queryType( typeOne, 151).exec(function(err, pokemon) {
+          queryType(typeOne, 0, 151).exec(function(err, pokemon) {
             if (err) res.send(err);
             res.json(pokemon);
           })
@@ -52,10 +58,22 @@ apiRouter.route('/generation/:gen_number')
         break;
 
       case "2": 
-        query().skip(151).limit(100).exec(function(err, pokemon) {
-          if (err) res.send(err);
-          res.json(pokemon);
-        });
+        if (typeOne && typeTwo) {
+          queryTwoTypes( typeOne, typeTwo, 151, 251).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        } else if (typeOne) {
+          queryType( typeOne, 151, 251).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          })
+        } else {
+          query().skip(151).limit(100).exec(function(err, pokemon) {
+            if (err) res.send(err);
+            res.json(pokemon);
+          });
+        }
         break;
 
       case "3":
