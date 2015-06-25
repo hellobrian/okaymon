@@ -14,11 +14,6 @@ var express     = require('express'),
 // Models
 var Pokemon = require('./app/models/pokemon');
 
-// Routes
-var typeApiRouter       = require('./app/routes/type.js'),
-    generationApiRouter = require('./app/routes/generation.js'),
-    pokemonApiRouter    = require('./app/routes/pokemon.js');
-
 // Config
 var config = require('./config.json'),
     port   = process.env.PORT || 8080;
@@ -38,7 +33,7 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET', 'PUT', 'POST');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
   next();
 });
@@ -55,9 +50,9 @@ if (app.get('env') === 'development') {
   app.use(morgan('dev')); 
 };
   
-app.use('/api', pokemonApiRouter);
-app.use('/api', generationApiRouter);
-// app.use('/api', typeApiRouter);
+app.use('/api', require('./app/routes/pokemon.js'));
+app.use('/api', require('./app/routes/generation.js'));
+app.use('/api', require('./app/routes/type.js'));
 
 app.get('/', function(req, res) {
   var apiUrl = 'http://okaymon.mybluemix.net/api/'
