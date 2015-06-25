@@ -54,10 +54,11 @@ apiRouter.route('/pokemon/:name_or_id')
     }
   })
   .put(function(req, res) {
-    var pokemonName = req.params.pokemon_name;
+    var pokemonName = req.params.name_or_id;
     Pokemon.find({"name": pokemonName.capitalize()}, function(err, pokemon) {
       if (err) res.send(err);
-      if (req.body.description) pokemon[0].description = req.body.description;
+      console.log(req.body);
+      if (req.body.descriptions) pokemon[0].descriptions = req.body.descriptions;
       // if (req.body.types) pokemon[0].types = req.body.types;
       // if (req.body.image_url) pokemon[0].image_url = req.body.image_url;
       pokemon[0].save(function(err) {
