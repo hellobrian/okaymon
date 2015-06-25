@@ -4,6 +4,10 @@ var Schema = mongoose.Schema;
 var PokemonSchema = new Schema({
   national_id: Number,
   pkdx_id: Number,
+  description: {
+    type: String,
+    trim: true
+  },
   name: {
     type: String,
     required: true,
