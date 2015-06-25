@@ -24,14 +24,8 @@ for (var i=0; i < 100; i++) {
 function updateWithDescription(description, name) {
   var url = "http://localhost:8080/api/pokemon/" + name;
   var descriptionObject = {
-    descriptions: [
-      {
-        game: 'pokemon y',
-        generation_id: 6,
-        description: description
-      }
-    ]
-  };
+    description: description
+  }
   request({
     url: url,
     method: 'PUT',
