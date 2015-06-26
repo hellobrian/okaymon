@@ -15,7 +15,18 @@ for (var i=0; i < pokemon.length; i++) {
         array_name.join("-") === "Porygon-z") {
       i++;
     } else {
-      console.log(array_name.join("-"));
+
+      var apiUrl = "http://localhost:8080/api/pokemon/" + pokemon[i].name;
+      var newName = array_name[0].toString();
+      console.log(apiUrl);
+
+      request({
+        url: apiUrl,
+        method: "PUT",
+        json: {
+          name: newName
+        }
+      })
     }
   } 
 }
