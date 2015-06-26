@@ -33,13 +33,13 @@ var SOURCE = {
 };
 
 gulp.task('images', function() {
-  gulp.src('public/images/pokemon-original/*.png')
+  gulp.src('public/images/pokemon/art-original/*.png')
     .pipe(imageop({
       optimizationLevel: 3,
       progressive: true, 
       interlaced: true
     }))
-    .pipe(gulp.dest('public/images/pokemon'));
+    .pipe(gulp.dest('public/images/pokemon/art'));
 });
 
 gulp.task('sprites', function() {
