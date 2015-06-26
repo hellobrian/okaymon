@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var pokemon = require('../pokemon.json');
 var fs = require('fs');
 
-for (var i=0; i < 300; i++) {
+for (var i=0; i < 10; i++) {
   var name = pokemon[i].name;
   var url = 'http://www.pokemon.com/us/pokedex/' + name;
 
@@ -16,20 +16,21 @@ for (var i=0; i < 300; i++) {
       decodeEntities: true,
       recognizeCDATA: true
     });
-    var html = $('.version-descriptions').children().text().trim();
-    updateWithDescription(html, pokemonName);
+    var imgSrc = $('.profile-images').children().attr("src");
+    var artUrl = 'http:' + imgSrc;
+    updateWithArt(artUrl, pokemonName);
   });
 }
 
-function updateWithDescription(description, name) {
+function updateWithArt(art_url, name) {
   var url = "http://localhost:8080/api/pokemon/" + name;
-  var descriptionObject = {
-    description: description
+  var artObject = {
+    art_url: art_url
   }
   request({
     url: url,
     method: 'PUT',
-    json: descriptionObject
+    json: artObject
   });
 }
 
