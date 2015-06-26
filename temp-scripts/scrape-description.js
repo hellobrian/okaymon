@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var pokemon = require('../pokemon.json');
 var fs = require('fs');
 
-for (var i=0; i < 100; i++) {
+for (var i=0; i < 300; i++) {
   var name = pokemon[i].name;
   var url = 'http://www.pokemon.com/us/pokedex/' + name;
 
