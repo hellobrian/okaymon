@@ -1,0 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Lora|Fjalla+One);
+
+%base--type {
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%typeface {
+  &__lora {
+    @extend %base--type;
+    font-weight: 400;
+    font-family: 'Lora', serif;
+    line-height: 1;
+  }
+
+  &__fjalla {
+    @extend %base--type;
+    font-weight: 400;
+    font-family: 'Fjalla One', sans-serif;
+    line-height: 1;
+  }
+}
