@@ -1,6 +1,5 @@
 {> main-template /}
 {<bodyContent}
 <section>
-  <h1>Okaymon</h1>
 </section>
 {/bodyContent}

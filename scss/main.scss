@@ -1,7 +1,13 @@
+// Styleguide
+
 @import 'sprite';
 @import 'colors';
 @import 'layout';
-@import 'type';
+@import 'typography';
+
+// Components
+
+@import 'components/header';
 
 body {
   @extend %typeface__vagrund;

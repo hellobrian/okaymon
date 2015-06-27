@@ -1,0 +1,6 @@
+<header class="header">
+  <div class="header__heading-wrapper">
+    <h1 class="header__heading">okaymon</h1>
+    <h2 class="header__sub-heading">Find a pokemon.</h2>
+  </div>
+</header>
