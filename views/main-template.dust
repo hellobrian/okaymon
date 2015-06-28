@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Okaymon</title>
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+  {>  "components/header.dust" /}
   {+bodyContent}
     Content should go here.
   {/bodyContent}
