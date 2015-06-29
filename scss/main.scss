@@ -1,37 +1,9 @@
-// Styleguide
-
+@import 'reset.scss';
 @import 'sprite';
+
+// Styleguide
 @import 'colors';
-@import 'layout';
 @import 'typography';
 
 // Components
-
 @import 'components/header';
-
-body {
-  @extend %typeface__vagrund;
-}
-
-*, *:after, *:before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-ul {
-  list-style-type: none;
-}
-
-$base-font-size: 16px;
-@function em($px, $base: $base-font-size) {
-  @return ($px / $base) * 1em;
-}
-
-.charmander {
-  @include sprite($charmander);
-}
-
-.icon {
-  @extend %icon;
-}

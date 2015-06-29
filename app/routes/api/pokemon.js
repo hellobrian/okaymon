@@ -1,5 +1,5 @@
 var express   = require('express'),
-    Pokemon   = require('../models/pokemon.js'),
+    Pokemon   = require('../../models/pokemon.js'),
     apiRouter = express.Router();
 
 apiRouter.get('/', function(req, res) {
