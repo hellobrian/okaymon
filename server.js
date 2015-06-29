@@ -1,15 +1,15 @@
 var express     = require('express'),
-    path        = require('path'),
     app         = express(),
     bodyParser  = require('body-parser'),
-    morgan      = require('morgan'),
-    mongoose    = require('mongoose'),
-    favicon     = require('express-favicon'),
     compression = require('compression'),
-    dustjs      = require('dustjs-linkedin'),
     cons        = require('consolidate'),
+    dustjs      = require('dustjs-linkedin'),
+    favicon     = require('express-favicon'),
+    mongoose    = require('mongoose'),
+    morgan      = require('morgan'),
     path        = require('path'),
     request     = require('request');
+
     
 // Models
 var Pokemon = require('./app/models/pokemon');
@@ -50,19 +50,10 @@ if (app.get('env') === 'development') {
   app.use(morgan('dev')); 
 };
   
-app.use('/api', require('./app/routes/pokemon.js'));
-app.use('/api', require('./app/routes/generation.js'));
-app.use('/api', require('./app/routes/type.js'));
-
-app.get('/', function(req, res) {
-  var apiUrl = 'http://okaymon.mybluemix.net/api/'
-  var generation1 = apiUrl + 'generation/1';
-  request(generation1, function(request, response, body) {
-    var pokemon = JSON.parse(body);
-    res.render('index', {layout: 'main-template', pokemon: pokemon });    
-  })
-  
-})
+app.use('/api', require('./app/routes/api/pokemon.js'));
+app.use('/api', require('./app/routes/api/generation.js'));
+app.use('/api', require('./app/routes/api/type.js'));
+app.use('/',    require('./app/routes/site/pages.js'));
 
 app.listen(port);
 console.log('http://localhost:' + port);

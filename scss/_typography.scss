@@ -1,5 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Lora|Fjalla+One);
 
+$base-font-size: 16px;
+
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
 %base--type {
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
