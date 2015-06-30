@@ -1,4 +1,8 @@
 {> main-template /}
 {<bodyContent}
-  
+  <main class="home-page">
+    <h1 class="home-page__heading">Okaymon</h1>
+    <h2 class="home-page__sub-heading">A simple collection of pokemon.</h2>
+    <a href="/pokemon">Start Exploring</a>
+  </main>
 {/bodyContent}
