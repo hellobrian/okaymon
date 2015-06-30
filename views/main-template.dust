@@ -10,5 +10,6 @@
   {+bodyContent}
     Content should go here.
   {/bodyContent}
+  <script src="javascript/background-color.js"></script>
 </body>
 </html>
