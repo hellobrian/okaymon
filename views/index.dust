@@ -1,8 +1,10 @@
 {> main-template /}
 {<bodyContent}
-  <main class="home-page">
-    <h1 class="home-page__heading">Okaymon</h1>
-    <h2 class="home-page__sub-heading">A simple collection of pokemon.</h2>
-    <a href="/pokemon">Start Exploring</a>
+  <main class="index-page">
+    <div class="index-page__container">
+      <h1 class="index-page__heading">Okaymon</h1>
+      <h2 class="index-page__sub-heading">A simple pokedex for learning about pokemon at a glance.</h2>
+      <a class="index-page__cta" href="/pokemon">Start Exploring</a>
+    </div>
   </main>
 {/bodyContent}
