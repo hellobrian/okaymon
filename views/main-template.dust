@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  {>  "components/header.dust" /}
   {+bodyContent}
     Content should go here.
   {/bodyContent}

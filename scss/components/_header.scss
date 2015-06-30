@@ -10,16 +10,14 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin: 0 13%;
+    margin: 0 13.5%;
   }
 
   &__heading {
-    @extend %typeface__fjalla;
+    // @extend %typeface__fjalla;
+    @extend %typeface__aileron--black;
     display: inline-block;
-    font-size: 1.5rem;
-    letter-spacing: 1em;
     text-align: center;
-    text-transform: uppercase;
     // width: 100%;
   }
 

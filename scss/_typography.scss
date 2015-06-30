@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Aileron-Black";
+  src: url('../fonts/Aileron-Black.otf');
+}
+@font-face {
+  font-family: "Aileron-Bold";
+  src: url('../fonts/Aileron-Bold.otf');
+}
+@font-face {
+  font-family: "Aileron-Regular";
+  src: url('../fonts/Aileron-Regular.otf');
+}
+
 @import url(http://fonts.googleapis.com/css?family=Lora|Fjalla+One);
 
 $base-font-size: 16px;
@@ -13,6 +26,17 @@ $base-font-size: 16px;
 }
 
 %typeface {
+  &__aileron--black {
+    @extend %base--type;
+    font-family: "Aileron-Black", sans-serif;
+    line-height: 1;
+  }
+  &__aileron--bold {
+    @extend %base--type;
+    font-family: "Aileron-Bold", sans-serif;
+    line-height: 1;
+  }
+
   &__lora {
     @extend %base--type;
     font-weight: 400;
