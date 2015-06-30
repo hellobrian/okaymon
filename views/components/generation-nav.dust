@@ -1,0 +1,34 @@
+<nav class="generation-nav">
+  <ul class="generation-nav__list">
+
+    {! Pokemon Red/Blue === 1st Gen !}
+    <li class="generation-nav__list-item">
+      <a href="/generation/1" class="generation-nav__link">Red/Blue
+      </a>
+    </li>
+    
+    {! Pokemon Gold/Silver == 2nd Gen !}
+    <li class="generation-nav__list-item">
+      <a href="/generation/2" class="generation-nav__link">Gold/Silver
+      </a>
+    </li>
+
+    {! Pokemon Ruby/Sapphire == 3rd Gen !}
+    <li class="generation-nav__list-item">
+      <a href="/generation/3" class="generation-nav__link">Ruby/Sapphire    
+      </a>
+    </li>
+    <li class="generation-nav__list-item">
+      <a href="/generation/4" class="generation-nav__link">Black/White 1
+      </a>
+    </li>
+    <li class="generation-nav__list-item">
+      <a href="/generation/5" class="generation-nav__link">Black/White 2
+      </a>
+    </li>
+    <li class="generation-nav__list-item">
+      <a href="/generation/6" class="generation-nav__link">X/Y
+      </a>
+    </li>
+  </ul>
+</nav>

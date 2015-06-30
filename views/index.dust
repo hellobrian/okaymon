@@ -1,5 +1,4 @@
 {> main-template /}
 {<bodyContent}
-<section>
-</section>
+  {> "components/generation-nav.dust" /}
 {/bodyContent}
