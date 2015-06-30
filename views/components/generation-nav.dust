@@ -3,13 +3,13 @@
 
     {! Pokemon Red/Blue === 1st Gen !}
     <li class="generation-nav__list-item">
-      <a href="/generation/1" class="generation-nav__link">Red/Blue
+      <a href="/generation/1" class="generation-nav__link red-blue">Red/Blue
       </a>
     </li>
     
     {! Pokemon Gold/Silver == 2nd Gen !}
     <li class="generation-nav__list-item">
-      <a href="/generation/2" class="generation-nav__link">Gold/Silver
+      <a href="/generation/2" class="generation-nav__link gold-silver">Gold/Silver
       </a>
     </li>
 

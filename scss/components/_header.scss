@@ -10,6 +10,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: 0 13%;
   }
 
   &__heading {
@@ -17,10 +18,9 @@
     display: inline-block;
     font-size: 1.5rem;
     letter-spacing: 1em;
-    margin-bottom: 0.25em;
     text-align: center;
     text-transform: uppercase;
-    width: 90%;
+    // width: 100%;
   }
 
   &__sub-heading {
