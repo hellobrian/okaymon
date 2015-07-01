@@ -22,9 +22,7 @@
   }
 
   &__inner-circle {
-    -moz-animation: spinning ease-in-out 5s 3s infinite;
-    -o-animation: spinning ease-in-out 5s 3s infinite;
-    animation: spinning ease-in-out 5s 3s infinite;
+    animation: spinning ease-in-out 5s infinite;
     background-color: white;
     border-radius: 50%;
     border: 2px solid white;
