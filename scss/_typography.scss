@@ -15,7 +15,7 @@
   src: url('../fonts/Aileron-UltraLight.otf');
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lora|Fjalla+One);
+@import url(http://fonts.googleapis.com/css?family=Lora);
 
 $base-font-size: 16px;
 
@@ -55,13 +55,6 @@ $base-font-size: 16px;
     @extend %base--type;
     font-weight: 400;
     font-family: 'Lora', serif;
-    line-height: 1;
-  }
-
-  &__fjalla {
-    @extend %base--type;
-    font-weight: 400;
-    font-family: 'Fjalla One', sans-serif;
     line-height: 1;
   }
 }
