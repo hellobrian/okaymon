@@ -6,7 +6,7 @@
       <h1 class="index-page__heading">Okaymon</h1>
 
       <h2 class="index-page__sub-heading">A simple pokedex for learning about pokemon at a glance.</h2>
-      <a class="index-page__cta" href="/pokemon">Start Exploring</a>
+      <a class="index-page__cta" href="/pokemon"> Press Start</a>
     </div>
   </main>
 {/bodyContent}
