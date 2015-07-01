@@ -22,12 +22,32 @@
     @media screen and (min-width: em(550px)) {
       margin: 0 20%;
     }
+
+    @media screen and (min-width: em(780px)) {
+      margin: 0 25%;
+    }
+
+    @media screen and (min-width: em(930px)) {
+      margin: 0 28.5%;
+    }
+
+    @media screen and (min-width: em(1240px)) {
+      margin: 0 30%;
+    }
+
+    @media screen and (min-width: em(1330px)) {
+      margin: 0 32.5%;
+    }
+
+    @media screen and (min-width: em(1520px)) {
+      margin: 0 35%;
+    }
   }
   &__heading {
     @extend %typeface__aileron--heavy;
     font-size: 3rem;
     color: white;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
     margin-bottom: 1.5rem;
     text-align: center;
 
@@ -43,6 +63,14 @@
       font-size: 4.75rem;
       margin: 0.5em 0;
     }
+
+    @media screen and (min-width: em(1085px)) {
+      font-size: 5rem;
+    }
+
+    @media screen and (min-width: em(1700px)) {
+      font-size: 5.5rem;
+    }
   }
 
   &__sub-heading {
@@ -54,17 +82,33 @@
     margin-bottom: 1.5rem;
     text-align: center;
     
+    @media screen and (min-width: em(350px)) {
+      font-size: 1.2rem;
+    }
+
     @media screen and (min-width: em(420px)) {
       font-size: 1.25rem;
     }
 
-    @media screen and (min-width: em(550px)) {
+    @media screen and (min-width: em(485px)) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (min-width: em(500px)) {
       font-size: 1.5rem;
     }
 
     @media screen and (min-width: em(670px)) {
       font-size: 1.75rem;
       margin-bottom: 1.5em;
+    }
+
+    @media screen and (min-width: em(1085px)) {
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: em(1700px)) {
+      font-size: 2.25rem;
     }
   }
 
