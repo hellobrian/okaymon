@@ -28,7 +28,7 @@
     width: em(15px);
 
     @media screen and (min-width: em(1000px)) {
-      animation: none;
+      animation: twitchyX 4s infinite;
       width: em(22px);
       height: em(22px);
       left: em(21px);
@@ -70,9 +70,20 @@
   0% { transform: translateX(0%); }
   4% { transform: translateX(-12%); }
   10% { transform: translateX(-10%); }
+  95% { transform: translateX(0%); }
+  99% { transform: translateX(3%); }
   100% { transform: translateX(0%); }
 }
 
+@keyframes twitchyX {
+  0% { transform: translateX(0%) }
+  8% { transform: translateX(-55%) }
+  75% { transform: translateX(-50%) }
+  90% { transform: translateX(-30%) }
+  100% { transform: translateX(0%) }
+}
+
+// FOR MOBILE DEVICES (Just cuz)
 @keyframes spinning {
     0%   { transform: translateX(-70%); }
     25%  { transform: translateX(75%); }
