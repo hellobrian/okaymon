@@ -14,8 +14,13 @@
   }
   &__container {
     margin: 0 10%;
+    
     @media screen and (min-width: em(400px)) {
       margin: 0 15%;
+    }
+    
+    @media screen and (min-width: em(550px)) {
+      margin: 0 20%;
     }
   }
   &__heading {
@@ -29,19 +34,37 @@
     @media screen and (min-width: em(400px)) {
       font-size: 3.75rem;
     }
+
+    @media screen and (min-width: em(550px) ) {
+      font-size: 4.5rem;
+    }
+
+    @media screen and (min-width: em(670px)) {
+      font-size: 4.75rem;
+      margin: 0.5em 0;
+    }
   }
 
   &__sub-heading {
     @extend %typeface__lora;
     color: white;
-    font-size: 1.25rem;
+    font-size: 1rem;
     letter-spacing: -0.01em;
     line-height: 1.3;
     margin-bottom: 1.5rem;
     text-align: center;
+    
+    @media screen and (min-width: em(420px)) {
+      font-size: 1.25rem;
+    }
 
-    @media screen and (min-width: em(400px)) {
+    @media screen and (min-width: em(550px)) {
+      font-size: 1.5rem;
+    }
+
+    @media screen and (min-width: em(670px)) {
       font-size: 1.75rem;
+      margin-bottom: 1.5em;
     }
   }
 
@@ -61,6 +84,12 @@
 
     @media screen and (min-width: em(400px)) {
       width: em(300px);
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: em(550px)) {
+      width: em(250px);
+      font-size: 1.25rem;
     }
   }
 }
@@ -68,23 +97,23 @@
 @keyframes fading {
   0%   { background: lighten(pokemon(fire), 5); }
   25%  { background: lighten(pokemon(water), 5); }
-  50%  { background: lighten(pokemon(grass), 5); }
-  75%  { background: lighten(pokemon(poison), 5); }
+  50%  { background: lighten(pokemon(dragon), 5); }
+  75%  { background: lighten(pokemon(fighting), 5); }
   100% { background: lighten(pokemon(fire), 5); }
 }
 
 @-moz-keyframes fading {
   0%   { background: lighten(pokemon(fire), 5); }
   25%  { background: lighten(pokemon(water), 5); }
-  50%  { background: lighten(pokemon(grass), 5); }
-  75%  { background: lighten(pokemon(poison), 5); }
+  50%  { background: lighten(pokemon(dragon), 5); }
+  75%  { background: lighten(pokemon(fighting), 5); }
   100% { background: lighten(pokemon(fire), 5); }
 }
 
 @-o-keyframes fading {
   0%   { background: lighten(pokemon(fire), 5); }
   25%  { background: lighten(pokemon(water), 5); }
-  50%  { background: lighten(pokemon(grass), 5); }
-  75%  { background: lighten(pokemon(poison), 5); }
+  50%  { background: lighten(pokemon(dragon), 5); }
+  75%  { background: lighten(pokemon(fighting), 5); }
   100% { background: lighten(pokemon(fire), 5); }
 }
