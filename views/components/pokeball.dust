@@ -1,5 +1,7 @@
-<div class="pokeball">
-  <div class="pokeball__inner-circle"></div>
-  <div class="pokeball__line"></div>
-</div>
+<section class="jump-container">
+  <div class="pokeball">
+    <div class="pokeball__inner-circle"></div>
+    <div class="pokeball__line"></div>
+  </div>
+</section>
 <div class="ground"></div>

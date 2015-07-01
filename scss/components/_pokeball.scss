@@ -1,3 +1,9 @@
+.jump-container {
+  @media screen and (min-width: em(1000px)) {
+    animation: jumpy 2s infinite alternate;
+  }
+}
+
 .pokeball {
   & {
     border-radius: 50%;
@@ -82,6 +88,17 @@
   90% { transform: translateX(-30%) }
   100% { transform: translateX(0%) }
 }
+
+@keyframes jumpy {
+  0% { transform: translateY(0%) }
+  85% { transform: translateY(1.5%) }
+  90% { transform: translateY(-10%) }
+  91% { transform: translateY(-13%) }
+  92% { transform: translateY(-14%) }
+  93% { transform: translateY(-14.5%) }
+  100% { transform: translateY(0%) }
+}
+
 
 // FOR MOBILE DEVICES (Just cuz)
 @keyframes spinning {
