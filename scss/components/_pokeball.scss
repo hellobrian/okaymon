@@ -1,36 +1,79 @@
 .pokeball {
   & {
-    position: relative;
+    border-radius: 50%;
     border: 3px solid white;
     height: em(50px);
-    width: em(50px);
-    border-radius: 50%;
     margin: 0 auto 1rem;
+    position: relative;
+    width: em(50px);
+
+    @media screen and (min-width: em(1000px)) {
+      animation: back-and-forth 7s infinite;
+      width: em(70px);
+      height: em(70px);
+    }
   }
 
   &__inner-circle {
     -moz-animation: spinning ease-in-out 5s infinite;
     -o-animation: spinning ease-in-out 5s infinite;
     animation: spinning ease-in-out 5s infinite;
-    width: em(15px);
-    height: em(15px);
+    background-color: white;
     border-radius: 50%;
     border: 2px solid white;
+    height: em(15px);
+    left: em(15px);
     position: absolute;
     top: em(14px);
-    left: em(15px);
-    background-color: white;
+    width: em(15px);
+
+    @media screen and (min-width: em(1000px)) {
+      animation: none;
+      width: em(22px);
+      height: em(22px);
+      left: em(21px);
+      top: em(21px);
+    }
   }
 
   &__line {
-    height: 4px;
-    width: em(45px);
     border-top: 2px solid white;
     position: relative;
     top: em(20px);
+    width: 100%;
+
+    @media screen and (min-width: em(1000px)) {
+      top: em(32px);
+      animation: wobbling 2s infinite alternate;
+    }
   }
 }
 
+.ground {
+  @media screen and (min-width: 1000px) {
+    border-top: 2px dotted white;
+    width: 20%;
+    display: block;
+    margin: -17px auto 0;
+  }
+}
+
+@keyframes wobbling {
+  0% { transform: rotate(-10deg); }
+  10% { transform: rotate(0deg); }
+  90% { transform: rotate(5deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes back-and-forth {
+  0% { transform: translateX(0%); }
+  10% { transform: translateX(5%); }
+  25% {transform: translateX(-10%); }
+  50% { transform: translateX(0%); }
+  70% { transform: translateX(5%); }
+  75% { transform: translateX(10%); }
+  100% { transform: translateX(0%); }
+}
 
 @keyframes spinning {
     0%   { transform: translateX(-70%); }

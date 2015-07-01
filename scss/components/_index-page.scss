@@ -11,6 +11,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 1700px) {
+      border: em(20px) solid white;
+    }
   }
   &__container {
     margin: 0 10%;

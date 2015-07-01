@@ -2,3 +2,4 @@
   <div class="pokeball__inner-circle"></div>
   <div class="pokeball__line"></div>
 </div>
+<div class="ground"></div>
