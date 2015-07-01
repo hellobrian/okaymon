@@ -1,6 +1,6 @@
 .jump-container {
   @media screen and (min-width: em(700px)) {
-    animation: jumpy 2s infinite alternate;
+    animation: jumpy 2s 1s infinite alternate;
   }
 }
 
@@ -14,7 +14,7 @@
     width: em(50px);
 
     @media screen and (min-width: em(700px)) {
-      animation: back-and-forth 4s infinite;
+      animation: back-and-forth 4s 3s infinite;
       border: 4px solid white;
       width: em(70px);
       height: em(70px);
@@ -22,9 +22,9 @@
   }
 
   &__inner-circle {
-    -moz-animation: spinning ease-in-out 5s infinite;
-    -o-animation: spinning ease-in-out 5s infinite;
-    animation: spinning ease-in-out 5s infinite;
+    -moz-animation: spinning ease-in-out 5s 3s infinite;
+    -o-animation: spinning ease-in-out 5s 3s infinite;
+    animation: spinning ease-in-out 5s 3s infinite;
     background-color: white;
     border-radius: 50%;
     border: 2px solid white;
@@ -35,7 +35,7 @@
     width: em(15px);
 
     @media screen and (min-width: em(700px)) {
-      animation: twitchyX 4s infinite;
+      animation: twitchyX 4s 1s infinite;
       width: em(22px);
       height: em(22px);
       left: em(21px);
@@ -51,7 +51,7 @@
 
     @media screen and (min-width: em(700px)) {
       top: em(32px);
-      animation: wobbling 2s infinite alternate;
+      animation: wobbling 2s 3s infinite alternate;
     }
   }
 }
