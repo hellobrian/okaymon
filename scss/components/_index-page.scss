@@ -49,9 +49,25 @@
 }
 
 @keyframes fading {
-    0%   { background: lighten(pokemon(fire), 5); }
-    25%  { background: lighten(pokemon(water), 5); }
-    50%  { background: lighten(pokemon(grass), 5); }
-    75%  { background: lighten(pokemon(poison), 5); }
-    100% { background: lighten(pokemon(fire), 5); }
+  0%   { background: lighten(pokemon(fire), 5); }
+  25%  { background: lighten(pokemon(water), 5); }
+  50%  { background: lighten(pokemon(grass), 5); }
+  75%  { background: lighten(pokemon(poison), 5); }
+  100% { background: lighten(pokemon(fire), 5); }
+}
+
+@-moz-keyframes fading {
+  0%   { background: lighten(pokemon(fire), 5); }
+  25%  { background: lighten(pokemon(water), 5); }
+  50%  { background: lighten(pokemon(grass), 5); }
+  75%  { background: lighten(pokemon(poison), 5); }
+  100% { background: lighten(pokemon(fire), 5); }
+}
+
+@-o-keyframes fading {
+  0%   { background: lighten(pokemon(fire), 5); }
+  25%  { background: lighten(pokemon(water), 5); }
+  50%  { background: lighten(pokemon(grass), 5); }
+  75%  { background: lighten(pokemon(poison), 5); }
+  100% { background: lighten(pokemon(fire), 5); }
 }

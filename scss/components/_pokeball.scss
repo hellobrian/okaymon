@@ -9,6 +9,8 @@
   }
 
   &__inner-circle {
+    -moz-animation: spinning ease-in-out 5s infinite;
+    -o-animation: spinning ease-in-out 5s infinite;
     animation: spinning ease-in-out 5s infinite;
     width: em(15px);
     height: em(15px);
@@ -31,6 +33,22 @@
 
 
 @keyframes spinning {
+    0%   { transform: translateX(-70%); }
+    25%  { transform: translateX(75%); }
+    50%  { transform: translateX(-70%); }
+    75%  { transform: translateX(75%); }
+    100% { transform: translateX(-70%); }
+}
+
+@-moz-keyframes spinning {
+    0%   { transform: translateX(-70%); }
+    25%  { transform: translateX(75%); }
+    50%  { transform: translateX(-70%); }
+    75%  { transform: translateX(75%); }
+    100% { transform: translateX(-70%); }
+}
+
+@-o-keyframes spinning {
     0%   { transform: translateX(-70%); }
     25%  { transform: translateX(75%); }
     50%  { transform: translateX(-70%); }
