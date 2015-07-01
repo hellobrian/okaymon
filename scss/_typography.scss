@@ -1,4 +1,21 @@
-@import url(http://fonts.googleapis.com/css?family=Lora|Fjalla+One);
+@font-face {
+  font-family: "Aileron-Heavy";
+  src: url('../fonts/Aileron-Heavy.otf');
+}
+@font-face {
+  font-family: "Aileron-Bold";
+  src: url('../fonts/Aileron-Bold.otf');
+}
+@font-face {
+  font-family: "Aileron-Regular";
+  src: url('../fonts/Aileron-Regular.otf');
+}
+@font-face {
+  font-family: "Aileron-UltraLight";
+  src: url('../fonts/Aileron-UltraLight.otf');
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lora);
 
 $base-font-size: 16px;
 
@@ -13,17 +30,31 @@ $base-font-size: 16px;
 }
 
 %typeface {
+  &__aileron--heavy {
+    @extend %base--type;
+    font-family: "Aileron-Heavy", sans-serif;
+    line-height: 1;
+  }
+  &__aileron--bold {
+    @extend %base--type;
+    font-family: "Aileron-Bold", sans-serif;
+    line-height: 1;
+  }
+  &__aileron--regular {
+    @extend %base--type;
+    font-family: "Aileron-Regular", sans-serif;
+    line-height: 1;
+  }
+  &__aileron--ultra-light {
+    @extend %base--type;
+    font-family: "Aileron-UltraLight", sans-serif;
+    line-height: 1;
+  }
+  
   &__lora {
     @extend %base--type;
     font-weight: 400;
     font-family: 'Lora', serif;
-    line-height: 1;
-  }
-
-  &__fjalla {
-    @extend %base--type;
-    font-weight: 400;
-    font-family: 'Fjalla One', sans-serif;
     line-height: 1;
   }
 }

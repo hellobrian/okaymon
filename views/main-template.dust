@@ -7,9 +7,148 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  {>  "components/header.dust" /}
   {+bodyContent}
     Content should go here.
   {/bodyContent}
+  <style>  
+    .index-page__heading, .index-page__cta, .index-page__sub-heading {
+      font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+
+    .index-page__heading {
+      font-family: "Aileron-Heavy", sans-serif;
+      line-height: 1; }
+
+    .index-page__cta {
+      font-family: "Aileron-Bold", sans-serif;
+      line-height: 1; }
+
+    .index-page__sub-heading {
+      font-weight: 400;
+      font-family: 'Lora', serif;
+      line-height: 1; }
+
+    .index-page {
+      -webkit-animation: fading 30s infinite;
+              animation: fading 30s infinite;
+      background: #bb84eb;
+      height: 100vh;
+      width: 100vw;
+      border: 0.625em solid white;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      @media screen and (min-width: 1700px) {
+        .index-page {
+          border: 1.25em solid white; } }
+
+    .index-page__container {
+      margin: 0 10%; }
+      @media screen and (min-width: 25em) {
+        .index-page__container {
+          margin: 0 15%; } }
+      @media screen and (min-width: 34.375em) {
+        .index-page__container {
+          margin: 0 20%; } }
+      @media screen and (min-width: 48.75em) {
+        .index-page__container {
+          margin: 0 25%; } }
+      @media screen and (min-width: 58.125em) {
+        .index-page__container {
+          margin: 0 28.5%; } }
+      @media screen and (min-width: 77.5em) {
+        .index-page__container {
+          margin: 0 30%; } }
+      @media screen and (min-width: 83.125em) {
+        .index-page__container {
+          margin: 0 32.5%; } }
+      @media screen and (min-width: 95em) {
+        .index-page__container {
+          margin: 0 35%; } }
+
+    .index-page__heading {
+      font-size: 3rem;
+      color: white;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+      text-align: center; }
+      @media screen and (min-width: 25em) {
+        .index-page__heading {
+          font-size: 3.75rem; } }
+      @media screen and (min-width: 34.375em) {
+        .index-page__heading {
+          font-size: 4.5rem; } }
+      @media screen and (min-width: 41.875em) {
+        .index-page__heading {
+          font-size: 4.75rem;
+          margin: 0.5em 0; } }
+      @media screen and (min-width: 67.8125em) {
+        .index-page__heading {
+          font-size: 5rem; } }
+      @media screen and (min-width: 106.25em) {
+        .index-page__heading {
+          font-size: 5.5rem; } }
+
+    .index-page__sub-heading {
+      color: white;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      text-align: center; }
+      @media screen and (min-width: 21.875em) {
+        .index-page__sub-heading {
+          font-size: 1.2rem; } }
+      @media screen and (min-width: 26.25em) {
+        .index-page__sub-heading {
+          font-size: 1.25rem; } }
+      @media screen and (min-width: 30.3125em) {
+        .index-page__sub-heading {
+          font-size: 1.3rem; } }
+      @media screen and (min-width: 31.25em) {
+        .index-page__sub-heading {
+          font-size: 1.5rem; } }
+      @media screen and (min-width: 41.875em) {
+        .index-page__sub-heading {
+          font-size: 1.75rem;
+          margin-bottom: 1.5em; } }
+      @media screen and (min-width: 67.8125em) {
+        .index-page__sub-heading {
+          font-size: 2rem; } }
+      @media screen and (min-width: 106.25em) {
+        .index-page__sub-heading {
+          font-size: 2.25rem; } }
+
+    .index-page__cta {
+      background-color: white;
+      border: 3px solid white;
+      color: black;
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      padding: 1em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: 100%; }
+      @media screen and (min-width: 25em) {
+        .index-page__cta {
+          width: 18.75em;
+          margin: 0 auto; } }
+      @media screen and (min-width: 34.375em) {
+        .index-page__cta {
+          width: 15.625em;
+          font-size: 1.25rem; } }
+  </style>
 </body>
 </html>

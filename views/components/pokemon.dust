@@ -1,0 +1,7 @@
+{#pokemon}
+  <section>
+    <h1>{name}</h1>
+    <img src="/images/pokemon/art/{name}.png" alt="">
+    <p>{description}</p>
+  </section>
+{/pokemon}
