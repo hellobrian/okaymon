@@ -8,7 +8,7 @@
     width: em(50px);
 
     @media screen and (min-width: em(1000px)) {
-      animation: back-and-forth 7s infinite;
+      animation: back-and-forth 4s infinite;
       width: em(70px);
       height: em(70px);
     }
@@ -59,19 +59,17 @@
 }
 
 @keyframes wobbling {
-  0% { transform: rotate(-10deg); }
+  0% { transform: rotate(0deg); }
+  5% { transform: rotate(-10deg); }
   10% { transform: rotate(0deg); }
   90% { transform: rotate(5deg); }
-  100% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes back-and-forth {
   0% { transform: translateX(0%); }
-  10% { transform: translateX(5%); }
-  25% {transform: translateX(-10%); }
-  50% { transform: translateX(0%); }
-  70% { transform: translateX(5%); }
-  75% { transform: translateX(10%); }
+  4% { transform: translateX(-12%); }
+  10% { transform: translateX(-10%); }
   100% { transform: translateX(0%); }
 }
 
