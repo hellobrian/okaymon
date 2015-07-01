@@ -1,5 +1,5 @@
 .jump-container {
-  @media screen and (min-width: em(1000px)) {
+  @media screen and (min-width: em(700px)) {
     animation: jumpy 2s infinite alternate;
   }
 }
@@ -7,14 +7,15 @@
 .pokeball {
   & {
     border-radius: 50%;
-    border: 3px solid white;
+    border: 2px solid white;
     height: em(50px);
     margin: 0 auto 1rem;
     position: relative;
     width: em(50px);
 
-    @media screen and (min-width: em(1000px)) {
+    @media screen and (min-width: em(700px)) {
       animation: back-and-forth 4s infinite;
+      border: 4px solid white;
       width: em(70px);
       height: em(70px);
     }
@@ -30,10 +31,10 @@
     height: em(15px);
     left: em(15px);
     position: absolute;
-    top: em(14px);
+    top: em(15px);
     width: em(15px);
 
-    @media screen and (min-width: em(1000px)) {
+    @media screen and (min-width: em(700px)) {
       animation: twitchyX 4s infinite;
       width: em(22px);
       height: em(22px);
@@ -45,10 +46,10 @@
   &__line {
     border-top: 2px solid white;
     position: relative;
-    top: em(20px);
+    top: em(22px);
     width: 100%;
 
-    @media screen and (min-width: em(1000px)) {
+    @media screen and (min-width: em(700px)) {
       top: em(32px);
       animation: wobbling 2s infinite alternate;
     }
@@ -56,7 +57,7 @@
 }
 
 .ground {
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 700px) {
     border-top: 2px dotted white;
     width: 20%;
     display: block;
@@ -91,11 +92,11 @@
 
 @keyframes jumpy {
   0% { transform: translateY(0%) }
-  85% { transform: translateY(1.5%) }
-  90% { transform: translateY(-10%) }
-  91% { transform: translateY(-13%) }
-  92% { transform: translateY(-14%) }
-  93% { transform: translateY(-14.5%) }
+  1% { transform: translateY(0.5%) }
+  5% { transform: translateY(-10%) }
+  6% { transform: translateY(-11%) }
+  7% { transform: translateY(-10%) }
+  10% { transform: translateY(0%) }
   100% { transform: translateY(0%) }
 }
 
