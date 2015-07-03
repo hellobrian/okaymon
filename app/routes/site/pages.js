@@ -66,8 +66,6 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
       url: previousPokemonUrl(_body)
     }
 
-    console.log(_body);
-
     res.render('pokemon', { 
       layout: 'pokemon-template', 
       pokemon: _body
