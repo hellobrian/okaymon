@@ -33,15 +33,38 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
       if (id === 718) {
         return null;
       } else {
-        return Pokemon[id].name;  
+        return Pokemon[id].name.toLowerCase();  
       }
-      
+    };
+
+    function previousPokemonUrl(pokemonBody) {
+      var id = pokemonBody[0].national_id;
+      var site_url = 'http://okaymon.mybluemix.net/pokemon/';
+      if (id === 1) {
+        return null;
+      } else {
+        return site_url + (id - 1);
+      }
+    }
+
+    function previousPokemonName(pokemonBody) {
+      var id = pokemonBody[0].national_id - 2;
+      if (id === 1) {
+        return null;
+      } else {
+        return Pokemon[id].name.toLowerCase();  
+      }
     }
 
     _body[0].next_pokemon = { 
       name: nextPokemonName(_body),
       url: nextPokemonUrl(_body)
     };
+
+    _body[0].previous_pokemon = {
+      name: previousPokemonName(_body),
+      url: previousPokemonUrl(_body)
+    }
 
     console.log(_body);
 

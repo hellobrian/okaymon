@@ -15,6 +15,7 @@
     </section>
     <nav class="poke-nav">
       <ul class="poke-nav__list">
+        <li class="poke-nav__list-item"><a href="{previous_pokemon.url}">{previous_pokemon.name}</a></li>
         <li class="poke-nav__list-item"><a href="{next_pokemon.url}">{next_pokemon.name}</a></li>
       </ul>
     </nav>
