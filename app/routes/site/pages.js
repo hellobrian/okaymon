@@ -20,10 +20,11 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
 
     function nextPokemonUrl(pokemonBody) {
       var id = pokemonBody[0].national_id;
+      var site_url = 'http://okaymon.mybluemix.net/pokemon/';
       if (id === 718) {
         return null;
       } else {
-        return url + (id + 1);
+        return site_url + (id + 1);
       }
     };
 
