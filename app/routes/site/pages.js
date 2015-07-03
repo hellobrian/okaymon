@@ -1,6 +1,7 @@
 var express = require('express'),
     pageRouter = express.Router(),
-    request = require('request');
+    request = require('request'),
+    Pokemon = require('../../../pokemon-v1.json');
 
 pageRouter.route('/').get(function (req, res) {
   res.render('index', {layout: 'main-template'});    
@@ -15,21 +16,29 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
   
   request(url, function (error, response, body) {
     var _body = JSON.parse(body);
-    
-    function nextPokemonUrl(pokemonBody) {
-      var url = 'http://okaymon.mybluemix.net/api/pokemon/';
-      var id = pokemonBody[0].national_id;
+    var url = 'http://okaymon.mybluemix.net/api/pokemon/';
 
+    function nextPokemonUrl(pokemonBody) {
+      var id = pokemonBody[0].national_id;
       if (id === 718) {
         return null;
       } else {
         return url + (id + 1);
       }
+    };
+
+    function nextPokemonName(pokemonBody) {
+      var id = pokemonBody[0].national_id;
+      return Pokemon[id].name;
     }
-    _body[0].next_pokemon = nextPokemonUrl(_body);
-    console.log(_body[0]);
-    // console.log(nextPokemonUrl(_body));
-    nextPokemonUrl(_body)
+
+    _body[0].next_pokemon = { 
+      name: nextPokemonName(_body),
+      url: nextPokemonUrl(_body)
+    };
+
+    console.log(_body);
+
     res.render('pokemon', { 
       layout: 'pokemon-template', 
       pokemon: _body
