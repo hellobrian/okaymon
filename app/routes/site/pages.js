@@ -30,7 +30,12 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
 
     function nextPokemonName(pokemonBody) {
       var id = pokemonBody[0].national_id;
-      return Pokemon[id].name;
+      if (id === 718) {
+        return null;
+      } else {
+        return Pokemon[id].name;  
+      }
+      
     }
 
     _body[0].next_pokemon = { 
