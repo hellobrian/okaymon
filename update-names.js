@@ -28,43 +28,8 @@ function updateDescription(okaymon_url, text) {
 }
 
 // repeat for every number of pokemon in pokemon-v1.json
-for (var i=0; i<3; i++) {
+for (var i=700; i<718; i++) {
   var national_id = Pokemon[i].national_id;
   var pokedex_description_url = 'http://www.pokemon.com/us/pokedex/' + national_id;
   getDescriptionText(pokedex_description_url, national_id);
 }
-
-
-
-
-
-
-
-
-
-
-
-// var getDescriptionText = function(url, update_url) {
-//   var updateUrl =  update_url;
-//   request(url, function (error, response, body) {
-//     var $ = cheerio.load(body, {
-//       normalizeWhitespace: true,
-//       decodeEntities: true,
-//       recognizeCDATA: true
-//     });
-//     var descriptionText = $('.version-descriptions .active').text().trim();
-//     request({
-//       url: updateUrl,
-//       method: 'PUT',
-//       json: {
-//         description: descriptionText
-//       }
-//     })
-//   });
-// }
-
-// for (var i=0; i < 3; i++) {
-//   var description_url = 'http://www.pokemon.com/us/pokedex/' + i;
-//   var update_url = 'http://localhost:8080/api/pokemon/' + i;
-//   getDescriptionText(description_url, update_url);
-// }
