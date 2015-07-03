@@ -7,21 +7,15 @@ pageRouter.route('/').get(function (req, res) {
 });
 
 pageRouter.route('/pokemon').get(function (req, res) {
-  request('http://okaymon.mybluemix.net/api/pokemon/1', function(error, response, body) {
-    var _body = JSON.parse(body);
-    res.render('pokemon', {layout: 'pokemon-template', pokemon: _body[0] });  
-  });
+  res.redirect('/pokemon/1');
 });
 
-pageRouter.route('/pokemon/:id').get(function (req, res) {
-  var url = 'http://okaymon.mybluemix.net/api/pokemon/' + req.params.id;
-  console.log(url);
+pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
+  var url = 'http://okaymon.mybluemix.net/api/pokemon/' + req.params.name_or_id;
+  
   request(url, function (error, response, body) {
     var _body = JSON.parse(body);
-    console.log(_body);
-    res.render('pokemon', {
-      layout: 'pokemon-template', pokemon: _body
-    });
+    res.render('pokemon', { layout: 'pokemon-template', pokemon: _body });
   });
 });
 
