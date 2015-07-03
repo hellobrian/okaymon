@@ -15,7 +15,10 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
   
   request(url, function (error, response, body) {
     var _body = JSON.parse(body);
-    res.render('pokemon', { layout: 'pokemon-template', pokemon: _body });
+    res.render('pokemon', { 
+      layout: 'pokemon-template', 
+      pokemon: _body
+    });
   });
 });
 
