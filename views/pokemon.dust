@@ -3,7 +3,7 @@
   {#pokemon}
   <main class="pokemon">
     <section class="pokemon__hero-section">
-      <h1 class="pokemon__name">{name}</h1>
+      <h1 class="pokemon__name">{name} {national_id}</h1>
       <div class="pokemon__art-container">
         <img class="pokemon__art" src="{art_url}" alt="{name} art">
       </div>
