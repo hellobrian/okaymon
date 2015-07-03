@@ -1,0 +1,8 @@
+{> pokemon-template /}
+{<bodyContent}
+  {#pokemon}
+  <main class="pokemon {name}">
+    {name}
+  </main>
+  {/pokemon}
+{/bodyContent}

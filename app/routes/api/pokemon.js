@@ -46,7 +46,7 @@ apiRouter.route('/pokemon/:name_or_id')
 
       case false: 
       // FIND A POKEMON by NAME
-        Pokemon.find({ "name": param.toLowerCase().capitalize() }, function(err, pokemon) {
+        Pokemon.find({ "name": param.toLowerCase() }, function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
@@ -92,10 +92,6 @@ apiRouter.route('/pokemon/:name_or_id')
 function isNumeric(input) {
   // source: http://stackoverflow.com/a/174921
   return (input - 0) == input && ('' + input).trim().length > 0;
-}
-
-String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 module.exports = apiRouter;
