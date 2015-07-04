@@ -48,11 +48,12 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
     }
 
     function previousPokemonName(pokemonBody) {
-      var id = pokemonBody[0].national_id - 2;
+      var id = pokemonBody[0].national_id;
       if (id === 1) {
         return null;
       } else {
-        return Pokemon[id].name.toLowerCase();  
+        var pokemonArrayIndex = id - 2;
+        return Pokemon[pokemonArrayIndex].name.toLowerCase();  
       }
     }
 
