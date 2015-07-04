@@ -1,7 +1,5 @@
-public/css
 public/libs
 node_modules
 config.json
-pokemon.json
 .DS_Store
 app/.DS_Store

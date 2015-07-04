@@ -46,7 +46,7 @@ apiRouter.route('/pokemon/:name_or_id')
 
       case false: 
       // FIND A POKEMON by NAME
-        Pokemon.find({ "name": param.toLowerCase().capitalize() }, function(err, pokemon) {
+        Pokemon.find({ "name": param.toLowerCase() }, function(err, pokemon) {
           if (err) res.send(err);
           res.json(pokemon);
         });
@@ -62,9 +62,9 @@ apiRouter.route('/pokemon/:name_or_id')
       case true: 
         Pokemon.find({"national_id": param}, function (err, pokemon) {
           if (err) res.send(err);
-          if (req.body.art_url) pokemon[0].art_url = req.body.art_url;
           if (req.body.name) pokemon[0].name = req.body.name;
           if (req.body.description) pokemon[0].description = req.body.description;
+          if (req.body.art_url) pokemon[0].art_url = req.body.art_url;
           pokemon[0].save(function (err) {
             if (err) res.send(err);
             res.json(pokemon);            
@@ -75,9 +75,9 @@ apiRouter.route('/pokemon/:name_or_id')
       case false: 
         Pokemon.find({"name": param}, function(err, pokemon) {
           if (err) res.send(err);
-          if (req.body.art_url) pokemon[0].art_url = req.body.art_url;
           if (req.body.name) pokemon[0].name = req.body.name;
           if (req.body.description) pokemon[0].description = req.body.description;
+          if (req.body.art_url) pokemon[0].art_url = req.body.art_url;
           // if (req.body.types) pokemon[0].types = req.body.types;
           // if (req.body.image_url) pokemon[0].image_url = req.body.image_url;
           pokemon[0].save(function(err) {
@@ -92,10 +92,6 @@ apiRouter.route('/pokemon/:name_or_id')
 function isNumeric(input) {
   // source: http://stackoverflow.com/a/174921
   return (input - 0) == input && ('' + input).trim().length > 0;
-}
-
-String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 module.exports = apiRouter;

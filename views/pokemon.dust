@@ -1,0 +1,24 @@
+{>pokemon-template/}
+{<bodyContent}
+  {#pokemon}
+  <main class="pokemon">
+    <section class="pokemon__hero-section">
+      <h1 class="pokemon__name">{name} {national_id}</h1>
+      <div class="pokemon__art-container">
+        <img class="pokemon__art" src="{art_url}" alt="{name} art">
+      </div>
+    </section>
+    <section class="pokemon__text-content">
+      <article class="pokemon__description">
+        <p class="pokemon__description__text">{description}</p>
+      </article>
+    </section>
+    <nav class="poke-nav">
+      <ul class="poke-nav__list">
+        <li class="poke-nav__list-item"><a href="{previous_pokemon.url}">{previous_pokemon.name}</a></li>
+        <li class="poke-nav__list-item"><a href="{next_pokemon.url}">{next_pokemon.name}</a></li>
+      </ul>
+    </nav>
+  </main>
+  {/pokemon}
+{/bodyContent}
