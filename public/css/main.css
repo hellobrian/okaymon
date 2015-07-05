@@ -23,6 +23,15 @@ ul {
   font-family: "Aileron-UltraLight";
   src: url("../fonts/Aileron-UltraLight.otf"); }
 
+.pokemon__name {
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.pokemon__name {
+  font-family: "Aileron-Heavy", sans-serif;
+  line-height: 1; }
+
 @-webkit-keyframes fading {
   0% {
     background: #e93447; }
@@ -292,3 +301,46 @@ ul {
     width: 20%;
     display: block;
     margin: -17px auto 0; } }
+
+.pokemon__hero-section {
+  height: 65vh;
+  background-color: #ccc; }
+
+.pokemon__name {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 250%;
+  width: 75%;
+  position: relative;
+  z-index: 2;
+  top: 50vh;
+  letter-spacing: -0.025em;
+  height: 1.5625em;
+  margin: 0 auto; }
+
+.pokemon__art-container {
+  position: relative;
+  z-index: 1;
+  top: -4.0625em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  opacity: 0.75;
+  height: 65vh; }
+
+.pokemon__art {
+  width: 50%; }

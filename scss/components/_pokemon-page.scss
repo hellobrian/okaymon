@@ -1,0 +1,36 @@
+.pokemon {
+  &__hero-section {
+    height: 65vh;
+    background-color: #ccc;
+  }
+  &__name {
+    @extend %typeface__aileron--heavy;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 250%;
+    width: 75%;
+    position: relative;
+    z-index: 2;
+    // top: 32.5vh;
+    top: 50vh;
+    letter-spacing: -0.025em;
+    height: em(25px);
+    margin: 0 auto;
+  }
+  &__art-container {
+    position: relative;
+    z-index: 1;
+    top: em(-65px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    opacity: 0.75;
+    height: 65vh;
+  }
+
+  &__art {
+    width: 50%;
+  }
+}

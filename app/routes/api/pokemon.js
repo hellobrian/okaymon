@@ -94,4 +94,8 @@ function isNumeric(input) {
   return (input - 0) == input && ('' + input).trim().length > 0;
 }
 
+// String.prototype.capitalize = function() {
+//   return this.charAt(0).toUpperCase() + this.slice(1);
+// }
+
 module.exports = apiRouter;
