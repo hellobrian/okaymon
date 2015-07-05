@@ -67,11 +67,19 @@ pageRouter.route('/pokemon/:name_or_id').get(function (req, res) {
       url: previousPokemonUrl(_body)
     }
 
+    _body[0].name = _body[0].name.capitalize();
+
+    // console.log(_body);
+
     res.render('pokemon', { 
       layout: 'pokemon-template', 
       pokemon: _body
     });
   });
 });
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 module.exports = pageRouter;
