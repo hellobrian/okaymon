@@ -11,6 +11,7 @@ This API is based on [pokeapi.co](http://pokeapi.co/), the open-source API by Pa
 The reason why I created my own API is because I only needed a subset of the data that pokeapi provides. 
 I also wanted to re-structure the data and endpoints to create a simpler API I could work with in my own projects. 
 For example, I wanted the urls for my API endpoints to be as descriptive as possible, that means including named parameters where it makes sense. 
+Therefore, it is very easy to find any pokemon's data.
 
 GET /api/pokemon/charmander will return data for Charmander. 
 GET /api/type/fire will return data for all fire type pokemon. 
